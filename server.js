@@ -5,6 +5,7 @@ const instructors = require('./instructors.json')
 const PORT = process.env.PORT || 3000
 
 app.get('/', async (req, res, next) => {
+  const instructors = await Instructors.findAll({where: {name: 'Ben'}})
   res.send(layout(instructorUL(instructors)))
 })
 
